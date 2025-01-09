@@ -39,7 +39,7 @@ export class AuthInterceptor implements HttpInterceptor{
     }
 
     private handle401Error(request : HttpRequest<any>, next : HttpHandler) : Observable<HttpEvent<any>>{
-        console.log("ingresso nel metodo handle401Error")
+        console.log("entrato nel metodo handle401Error")
         if(this.isRequest){
             console.log("richiesta in corso")
             return next.handle(request)
