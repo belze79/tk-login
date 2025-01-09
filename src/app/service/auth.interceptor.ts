@@ -64,7 +64,7 @@ export class AuthInterceptor implements HttpInterceptor{
             }),
             catchError(refreshError => {
                 if([401, 403].includes(refreshError.status)){
-                    console.log("errore token, qua dovrebbe rimandare al login")
+                    console.log("errore token, rimanda al login")
                     this.authService.logout()
                     return throwError(() => new Error("Errore autorizzazione", refreshError))
                 }
