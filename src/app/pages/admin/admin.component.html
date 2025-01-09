@@ -1,0 +1,36 @@
+<h1>WELCOME {{username}}</h1>
+<button (click)="getAllUsers()">Show Users</button>
+<button (click)="logout()">Logout</button>
+<div *ngIf="spinner"
+    [ngStyle]="{position : 'absolute', top : '50%', left : '50%', transform : 'translate(-50%, -50%)'}">
+    <img src="../../../assets/img/loading.gif">
+</div>
+<table *ngIf="showUsers">
+    <thead>
+        <tr>
+            <th>ID User</th>
+            <th>Username</th>
+            <th>Enail</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Token</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of displayedUsers">
+            <td>{{user.idUser}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.psw}}</td>
+            <td>{{user.ruolo}}</td>
+            <td>{{user.refreshToken}}</td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="prevPage()" [disabled]="currentPage <= 1">Previous Page</button>
+<button *ngFor="let page of showButtonArray index as i"
+    [ngStyle]="{backgroundColor : currentPage === page ? 'lime' : ''}"
+    (click)="goToPage(page)">
+        {{page}}
+</button>
+<button (click)="nextPage()" [disabled]="currentPage >= totalPages">Next Page</button>

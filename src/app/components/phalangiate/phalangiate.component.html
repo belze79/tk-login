@@ -1,0 +1,10 @@
+<div class="centerServer">
+    <div [ngClass]="{'serverContainer' : true, 'dark' : isDark}">
+        <img class="btn" src="../../../assets/img/icon/arrow1.png" (click)="setServer(-1)">
+        <span >Server</span>
+        <span class="serverSelected">{{serverName[serverSelected]}}</span>
+        <img class="btn" src="../../../assets/img/icon/arrow1.png" (click)="setServer(1)"
+            [ngStyle]="{transform : 'rotate(180deg)'}">
+    </div>
+</div>
+<button routerLink="/home">torna a home</button>

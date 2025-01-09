@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="bordup">
+        <img src="../../../assets/img/teutobelze.png">
+        <div class="titlehead">BELZE ToolsK</div>
+    </div>
+    <form [formGroup]="formRegister" (submit)="submit()">
+        <div class="titleForm">SIGN UP</div>
+        <div class="itemForm">
+            <div class="labelForm">Username</div>
+            <input type="text" formControlName="username">
+            <p class="errors" *ngIf="errorUsernameExists">username already exists</p>
+        </div>
+        <div class="itemForm">
+            <div class="labelForm">Email</div>
+            <input type="email" formControlName="email">
+            <p class="errors" *ngIf="errorEmailExists">email already exists</p>
+            <p class="errors" *ngIf="errorEmailInvalid">invalid email format</p>
+        </div>
+        <div class="itemForm">
+            <div class="labelForm">Password</div>
+            <input type="password" formControlName="psw">
+            <p class="errors" *ngIf="errorPswShort">short password min 8 character</p>
+        </div>
+        <button [ngClass]="{'disabled' : !formRegister.valid}" type="submit">Sign Up</button>
+    </form>
+    <button class="goTo" routerLink="/login">Go to Login</button>
+    <div class="bordown"></div>
+</div>
+<div *ngIf="spinner"
+    [ngStyle]="{position : 'absolute', top : '50%', left : '50%', transform : 'translate(-50%, -50%)'}">
+    <img src="../../../assets/img/loading.gif">
+</div>
+
